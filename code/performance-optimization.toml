@@ -55,6 +55,11 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
  - Absence of memoization for pure functions
  - Static assets without cache busting
 
+8. **Scalability**
+ - Safe-Checks for multi-instance production environment
+ - Parallel processing of AMQP/HTTP/gRPC requests across multiple instances against the same codebase and database.
+ - Compnents connection starvation (Database, Caching, Messaging)
+
 **Output Format**
 For each issue identified:
 1. **Issue**: Describe the performance problem
