@@ -65,6 +65,7 @@ For each issue identified:
 6. **Code Example**: Show opmitized version when possible
 7. **Expected Improvement**: Quantify performance gains if measurable
 Write a markdown file for each issue identified with all relevant information in a "performance-check" folder.
+Write the final summary in a file called "Summary.md" also inside the "performance-check" folder.
 
 If code is well-optimized:
  - Confirm optmiziation status
