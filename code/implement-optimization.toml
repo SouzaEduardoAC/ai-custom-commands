@@ -34,7 +34,11 @@ prompt = """
 6. **Generate a Conventional Commit message based on staged changes**
  - You are an expert at writing Conventional Commit messages, Analyze the output of `git diff --staged` provided below and generate a concise and accurate commit message.
  - Check the staged changes: !{git diff --staged}
-
+ - Create a new feature branch based on the current one
+ - Stage all edited files
+ - Commit all staged files with the accurate message
+ - Push to origin
+ 
 7. **Summarize the entire operation and provide a detailed report.**
  - Create/Update the project's documentation with the new changes
 """
