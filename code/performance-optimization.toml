@@ -1,4 +1,4 @@
-description = "Automatically fix performance gaps."
+description = "Analyze performance gaps."
 
 prompt = """
 Analyze the provided code for performance bottlenecks and optimization opportunities. Conduct a thorough review covering:
