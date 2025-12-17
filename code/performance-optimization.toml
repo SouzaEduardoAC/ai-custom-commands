@@ -57,7 +57,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 
 8. **Scalability**
  - Safe-Checks for multi-instance production environment
- - Parallel processing of AMQP/HTTP/gRPC requests across multiple instances against the same codebase and database.
+ - Parallel processing of AMQP/HTTP/gRPC requests across multiple instances against the same codebase and infrastructure components.
  - Compnents connection starvation (Database, Caching, Messaging)
 
 **Output Format**
