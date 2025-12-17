@@ -33,6 +33,7 @@ prompt = """
   - **Error cases:** Invalid inputs, exception handling
 
 6. **Generate a Conventional Commit message based on staged changes**
+ - DO NOT proceed to commit the code unless all tests are passing
  - You are an expert at writing Conventional Commit messages, Analyze the output of `git diff --staged` provided below and generate a concise and accurate commit message.
  - Check the staged changes: !{git diff --staged}
  - Create a new feature branch based on the current one
