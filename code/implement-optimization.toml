@@ -2,7 +2,7 @@ description = "Fix performance gaps based on previous analysis."
 
 prompt = """
 1. **Analyze the issue**
- - Read the issue at {{args}}
+ - Read the presented issue
  - Analyze the provided issue
  - Understand the issue found
 
@@ -43,4 +43,8 @@ prompt = """
 
 7. **Summarize the entire operation and provide a detailed report.**
  - Create/Update the project's documentation with the new changes
+
+---
+**START OF THE PROVIDED ISSUE**:
+{{args}}
 """
