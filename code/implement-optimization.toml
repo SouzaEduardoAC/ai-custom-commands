@@ -24,6 +24,7 @@ prompt = """
  - Implement the solution proposed on item 3
  - Use the project's existing patterns and conventions
  - Focus on each task, make sure you complete one before moving to another
+ - DO NOT install any library with commercial license.
  - Make sure all tests are passing
  - Ensure all branches and conditions are covered
  - Generate tests for new implementations
@@ -38,7 +39,7 @@ prompt = """
  - Stage all edited files
  - Commit all staged files with the accurate message
  - Push to origin
- 
+
 7. **Summarize the entire operation and provide a detailed report.**
  - Create/Update the project's documentation with the new changes
 """
