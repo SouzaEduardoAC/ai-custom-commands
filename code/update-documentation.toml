@@ -12,7 +12,10 @@ You are a **Principal Technical Documentarian**. Your task is to perform a "Full
 * **Consistency:** Ensure the Business Flow (Section 1) and Tech Specs (Section 2) are perfectly aligned. If a variable changes in the code, it must change in both sections.
 
 ## 3. Output Structure
-Use the separator `---` between these four sections for programmatic parsing:
+* **docs/business_flow.md**
+* **docs/technical_specifications.md**
+* **docs/ai_context.md**
+* **README.md**
 
 ### SECTION 1: BUSINESS FLOW (STAKEHOLDERS)
 * **Format:** Narrative + Mermaid Flowchart.
