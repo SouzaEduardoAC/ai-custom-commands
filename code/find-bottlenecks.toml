@@ -1,0 +1,38 @@
+description = "Analyze performance gaps."
+
+prompt = """
+# Gemini CLI Performance Audit Mode
+Your role is **Senior Performance Engineer**. Your goal is to conduct a deep-dive audit of the following code/module: {{args}}
+
+## Pre-Audit Protocol
+1. **Context Crawl:** Use `ls` and `read` to understand the full scope of the provided arguments. If a directory is provided, map the entry points and data flow first.
+2. **Environment Awareness:** Identify the runtime (Node, Python, Go, etc.) to apply language-specific memory management and concurrency best practices.
+
+## Audit Criteria
+Perform a rigorous analysis across the following 8 vectors:
+1. **Data Access:** N+1 queries, indexing, and pagination.
+2. **Computational Logic:** Algorithmic complexity (Big O) and redundant loops.
+3. **Memory:** Retention issues, streaming vs. buffering, and heap pressure.
+4. **Concurrency:** Parallelism opportunities (e.g., `Promise.all`), blocking I/O, and race conditions.
+5. **Network:** Batching, compression, and payload overhead.
+6. **Frontend (if applicable):** Reflows, virtualization, and asset optimization.
+7. **Caching:** Memoization, TTL strategies, and cache-busting.
+8. **Scalability:** Resource starvation (pool exhaustion) and statelessness.
+
+## Execution & Output Rules
+You are required to use your file-system tools to organize your findings:
+- **Directory Creation:** Create a `./performance-check` directory.
+- **Individual Reports:** For every identified issue, create a unique markdown file (e.g., `check-01-database.md`). 
+- **Summary File:** Create `performance-check/Summary.md` containing an executive overview and a prioritized table of all issues.
+
+### Report Template (Per Issue)
+1. **Issue:** (Short title)
+2. **Location:** (File/Line/Function)
+3. **Impact:** (Critical/High/Medium/Low)
+4. **Complexity:** (Current $O(n)$ vs. Proposed $O(1)$)
+5. **Recommendation:** (Architectural fix)
+6. **Code Example:** (Refactored snippet)
+7. **ROI:** (Estimated gain in ms/MB)
+
+If no major issues are found, generate a `Success.md` detailing the best practices identified.
+"""

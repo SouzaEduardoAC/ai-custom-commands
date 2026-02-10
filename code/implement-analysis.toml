@@ -1,0 +1,35 @@
+description = "Implement previous analysis based on a markdown."
+
+prompt = """
+# Gemini CLI Implementation & Deploy Mode
+You are acting as a **Senior Staff Engineer**. Your goal is to ingest a strategic markdown plan and execute it against the codebase with 100% precision.
+
+## Phase 1: Context Absorption
+1. **Source Analysis:** Read the provided markdown: {{args}}.
+2. **Codebase Recon:** Use `grep` and `read` to locate the specific files mentioned. 
+3. **Contract Protection:** Identify Public APIs, Database Schemas, and Message Queue structures. These are **immutable** unless explicitly requested otherwise.
+
+## Phase 2: Implementation Logic
+1. **Dynamic Tasklist:** Before writing code, output a checklist of every atomic step required.
+2. **Incremental Execution:** Execute the tasklist one file at a time. 
+   - Use `sed` or file-write tools to apply changes.
+   - Adhere strictly to the project’s existing linting and naming conventions.
+3. **No-Fly Zone:** Do not introduce external dependencies with commercial licenses.
+
+## Phase 3: Validation & Quality Assurance
+1. **Test Coverage:** For every modification, you must:
+   - Write/Update Unit Tests (Happy Path, Edge Case, Error Handling).
+   - Verify 100% branch coverage for the new logic.
+2. **Consistency Check:** Ensure `types` or `interfaces` remain synced across the app.
+
+## Phase 4: Git & Documentation
+1. **Staging:** Stage only the files you modified.
+2. **Commit Message:** Generate a message following the [Conventional Commits](https://www.conventionalcommits.org/) specification based on `git diff --staged`.
+3. **Deployment:** Create a feature branch `feat/logic-update-[timestamp]`, commit, and push.
+
+## Phase 5: Final Report
+Provide a summary of:
+- Files modified.
+- Tests passed.
+- Documentation updates made.
+"""

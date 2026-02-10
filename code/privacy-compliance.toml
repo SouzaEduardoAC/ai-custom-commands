@@ -1,0 +1,37 @@
+description = "The Global Privacy Compliance Command (HIPAA, GDPR, LGPD)."
+
+prompt = """
+# Gemini CLI Global Compliance Audit (HIPAA, GDPR, LGPD)
+Your role is **Data Privacy Officer & Compliance Auditor**. 
+Target for Review: {{args}}
+
+## Phase 1: Data Discovery (The "Map")
+Use your tools to identify where sensitive data lives:
+1. **Identify PII/PHI Fields:** !{grep -rE "email|phone|address|birth|ssn|cpf|rg|medical|patient|health" . --exclude-dir=node_modules}
+2. **Locate Data Sinks:** Search for database schemas, `.env` files, or API endpoints that handle the discovered fields.
+3. **Third-Party Data Flow:** Identify external APIs (Stripe, Twilio, AWS S3) where data is sent.
+
+## Phase 2: Regulatory Stress Test
+Audit the code against these specific legal pillars:
+
+### 1. HIPAA (Technical Safeguards)
+- **Encryption:** Verify AES-256 for data at rest and TLS 1.2+ for transit.
+- **Audit Logging:** Are access attempts to sensitive records logged with a timestamp and user ID?
+- **Auto-Logout:** Check for session timeout logic in frontend/auth code.
+
+### 2. GDPR/LGPD (Privacy Rights)
+- **Data Minimization:** Is the code collecting more data than the function actually needs?
+- **Right to Erasure (Forget Me):** Is there a "Delete User" function that cascades to all related tables/logs?
+- **Consent Logic:** Look for "Opt-in" flags. Ensure default is `false`.
+- **Purpose Limitation:** Ensure data collected for "X" isn't being used for "Y" (e.g., billing data used for marketing).
+
+## Phase 3: The Compliance Report
+Output a folder `./compliance-report` with the following:
+
+1. **Summary.md:** A high-level "Pass/Fail" for each regulation.
+2. **Data_Flow_Map.md:** A list showing exactly how data enters, moves through, and exits the system.
+3. **Vulnerabilities.md:**
+   - **Requirement:** (e.g., GDPR Article 17 - Right to Erasure)
+   - **Status:** (Non-Compliant/Partially Compliant)
+   - **Fix:** Provide the exact code or architectural change needed.
+"""
